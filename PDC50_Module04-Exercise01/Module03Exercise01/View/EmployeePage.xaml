@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module03Exercise01.View.EmployeePage"
+             Title="EmployeePage">
+    <VerticalStackLayout>
+
+        <VerticalStackLayout HorizontalOptions="CenterAndExpand">
+            <Label Text="{Binding FullName}" 
+                   FontSize="35"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
+            <Label Text="{Binding Position}"
+                   FontSize="14"
+                   TextColor="Gray"
+                   HorizontalTextAlignment="Center"/>
+
+            <Button Text="Where is your Manager?"
+                    Margin="20"
+                    BackgroundColor="LightBlue"
+                    FontSize="18"
+                    Command="{Binding LoadEmployeeDataCommand}"/>
+        </VerticalStackLayout>
+
+        <ListView ItemsSource="{Binding Employees}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+                            <StackLayout Orientation="Vertical">
+                                <!-- Label for Full Name -->
+                                <Label Text="{Binding FullName}"
+                                       FontSize="21"
+                                       FontAttributes="Bold"/>
+
+                                <!-- Label for Position -->
+                                <Label FontSize="14">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Position: " FontAttributes="Bold" TextColor="Gray"/>
+                                            <Span Text="{Binding Position}"
+                                                  TextColor="Gray"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <!-- Label for Department -->
+                                <Label FontSize="14">
+                                    <Label.FormattedText>
+                                        <FormattedString>
+                                            <Span Text="Department: " FontAttributes="Bold" TextColor="Gray"/>
+                                            <Span Text="{Binding Department}"
+                                                  TextColor="Gray"/>
+                                        </FormattedString>
+                                    </Label.FormattedText>
+                                </Label>
+
+                                <!-- Separator -->
+                                <BoxView Color="Gray" HeightRequest="1" HorizontalOptions="FillAndExpand"/>
+                            </StackLayout>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </VerticalStackLayout>
+</ContentPage>

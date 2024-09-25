@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Module03Exercise01.View.AddEmployeePage"
+             Title="AddEmployeePage">
+
+    <VerticalStackLayout>
+        <HorizontalStackLayout Margin="40, 0, 40, 0">
+            <Image Source="addemployeeicon.png"
+                   WidthRequest="150"
+                   HeightRequest="150"
+                   Aspect="AspectFill"
+                   x:Name = "CaptureImage"/>
+
+            <VerticalStackLayout WidthRequest="100"
+                                 Margin="10, 0, 0, 0"
+                                 VerticalOptions="Center">
+                <Entry Placeholder="Firstname"/>
+                <Entry Placeholder="Lastname"/>
+            </VerticalStackLayout>
+            
+        </HorizontalStackLayout>
+        
+
+        <Button Text="Take Employee Photo"
+                Clicked="OnCapturePhotoClicked"
+                Margin="0, 20, 0, 0"
+                WidthRequest="200"
+                BackgroundColor="CornflowerBlue"/>
+
+        <VerticalStackLayout Margin="40, 20, 40, 20">
+            <Entry Placeholder="Fullname"/>
+
+            <HorizontalStackLayout>
+                <Entry Placeholder="Municipality"
+                       x:Name="emp_municipality"
+                       MinimumWidthRequest="100"/>
+                <Entry Placeholder="Province"
+                       x:Name="emp_province"
+                       MinimumWidthRequest="100"/>
+
+                <Button Text="Get Location"
+                        Clicked="OnGetLocationClicked"
+                        BackgroundColor="CornflowerBlue"/>
+            </HorizontalStackLayout>
+            
+            
+            <Label Text="Coordinates"
+                   x:Name="emp_coordinates"
+                   Margin="0, 10, 0, 0"
+                   HorizontalTextAlignment="Center"
+                   HorizontalOptions="CenterAndExpand"/>
+            
+            <Entry Placeholder="Position"/>
+            <Entry Placeholder="Department"/>
+
+            <Button Text="Submit"
+                    WidthRequest="200"
+                    Margin="0, 20, 0, 0"
+                    BackgroundColor="CornflowerBlue"/>
+        </VerticalStackLayout>
+    </VerticalStackLayout>
+</ContentPage>
